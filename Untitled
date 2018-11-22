@@ -1,0 +1,2 @@
+rails new demo_app
+rails g controller users index new edit show

@@ -1,0 +1,3 @@
+p
+puts
+print

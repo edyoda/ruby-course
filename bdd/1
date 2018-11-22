@@ -1,0 +1,6 @@
+require '' 
+describe 'fizzbuzz' do
+  it 'return 1 in number is 1' do
+    expect(fizzbuzz(1)).to eq 1
+  end
+end
