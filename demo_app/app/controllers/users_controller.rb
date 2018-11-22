@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-#GET /users/new 
+#GET /users/new
   def new
     @user = User.new
   end
@@ -33,9 +33,15 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+  def destroy
+    @user = User.find(params[:id])
+    @user.delete
+    flash[:notice] = "Successfully deleted!"
+    redirect_to users_path
+  end
   private
   def user_params
-  # params contains meta data along with actual data so below logic will return the actual data which will get use 
+  # params contains meta data along with actual data so below logic will return the actual data which will get use
   # by the create or update actions
     params.require(:user).permit!
   end

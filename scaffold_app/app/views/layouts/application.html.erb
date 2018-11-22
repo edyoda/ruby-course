@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DemoApp</title>
+    <title>ScaffoldApp</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,9 +9,10 @@
   </head>
 
   <body>
-    <% flash.each do |_, value|%>
-     <%= value%>
+    <% if subscriber_signed_in? %>
+      <%= link_to "Logout", destroy_subscriber_session_path , method: :delete%>
     <%end%>
+    <%= "Logged in as #{current_subscriber.email}" if current_subscriber%>
     <%= yield %>
   </body>
 </html>

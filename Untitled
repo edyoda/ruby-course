@@ -1,2 +1,14 @@
 rails new demo_app
 rails g controller users index new edit show
+rails g model user name email password confirm_password
+rails/rake db:migrate
+
+rake routes # to get all the available routes
+
+https://gorails.com/setup/windows/10
+
+
+go to Gemfile
+
+gem 'execjs'
+gem 'therubyracer'

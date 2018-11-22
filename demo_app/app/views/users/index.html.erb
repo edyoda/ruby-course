@@ -8,6 +8,7 @@
         <td><%= i.name %></td>
         <td><%= i.email %></td>
         <td><%= link_to "Show", user_path(i.id) %></td>
+        <td><%= link_to "Delete", i, method: :delete, data: {confirm: "Are you sure?"} %></td>
       </tr>
       <%end%>
 </table>
