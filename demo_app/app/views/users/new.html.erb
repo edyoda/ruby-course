@@ -1,2 +1,23 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<%= form_for @user do | f |%>
+  <table class="table table-striped">
+    <tr>
+      <td><%= f.label :name%></td>
+      <td><%= f.text_field :name%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :email%></td>
+      <td><%= f.text_field :email%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :password%></td>
+      <td><%= f.password_field :password%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :confirm_password%></td>
+      <td><%= f.password_field :confirm_password%></td>
+    </tr>
+    <tr>
+      <td><%= f.submit "Sign UP", :class=>"btn btn-primary"%></td>
+      </tr>
+  </table>
+<%end%>
