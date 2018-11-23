@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :users
+  resources :users do
+    collection do
+      get 'upload_image'
+      post 'process_images'
+      get 'gallery'
+    end
+  end
   namespace :api do
     resources :users do
       collection do

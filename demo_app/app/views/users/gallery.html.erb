@@ -1,0 +1,10 @@
+<table>
+  <tr>
+    <th>Images</th>
+    <tr>
+    <tr>
+      <%   @image.each do | image |%>
+      <td><%= image_tag image.photo(:small) %></td>
+      <%end%>
+      </tr>
+  </table>

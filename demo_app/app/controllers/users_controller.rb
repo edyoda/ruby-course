@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
+    logger.debug("--------#{@users.inspect}")
+    custome_logger.info("--------#{@users.inspect}")
   end
 
 #GET /users/new
@@ -11,6 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserMailer.welocome(@user).deliver_now!
       redirect_to edit_user_path(@user.id)
     else
       render "new"
@@ -38,6 +41,19 @@ class UsersController < ApplicationController
     @user.delete
     flash[:notice] = "Successfully deleted!"
     redirect_to users_path
+  end
+  def upload_image
+
+
+  end
+  def gallery
+    @image = Image.all
+  end
+  def process_images
+    params[:image]['photo'].each do | each_image |
+     Image.create(photo: each_image)
+   end
+     redirect_to gallery_users_path
   end
   private
   def user_params
