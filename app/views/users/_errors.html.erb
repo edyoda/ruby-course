@@ -1,0 +1,5 @@
+<% if @user.errors.any? %>
+  <% @user.errors.messages.each do | i |%>
+    <%= i %>
+  <%end%>
+<%end%>
