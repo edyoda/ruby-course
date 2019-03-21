@@ -1,0 +1,8 @@
+---
+ - A:
+     name: Rails
+     address: HSR
+ - B:
+    name: Ruby
+    address: Bangalore
+  
