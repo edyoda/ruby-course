@@ -1,10 +1,11 @@
-<table>
+<table class="table table-striped">
   <tr>
     <th>Name</th>
     <th>Email</th>
   </tr>
     <% @users.each do | user | %>
       <tr>
+        <td><%= image_tag(user.image.photo(:thumb)) if user.image.present?%></td>
         <td><%= user.name%></td>
         <td><%= user.email%></td>
         <td><%= link_to "show", user_path(user) %></td>

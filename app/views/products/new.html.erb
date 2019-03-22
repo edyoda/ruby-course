@@ -1,0 +1,20 @@
+<%= form_for @product do | f | %>
+  <table>
+    <tr>
+     <td><%= f.label :title%></td>
+     <td><%= f.text_field :title%></td>
+    </tr>
+    <tr>
+      <%= f.fields_for :image do | image |%>
+       <td><%= image.label :photo%></td>
+       <td><%= image.file_field :photo , multiple: true%></td>
+     <%end%>
+    </tr>
+    <tr>
+     <td></td>
+     <td><%= f.submit%></td>
+    </tr>
+    </table>
+<%end%>
+
+<%= link_to "Home page", users_path, :class=>"btn btn-info"%>

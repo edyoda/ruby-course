@@ -3,6 +3,9 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: {maximum: 10, minimum: 4}
   validates :confirm_password, presence: true, length: {maximum: 10, minimum: 4}
+  has_one :image, as: :entity
+  accepts_nested_attributes_for :image
+
   include PasswordValidator
   validate do |comment|
      comment.validate_password

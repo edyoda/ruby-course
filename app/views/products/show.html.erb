@@ -1,0 +1,9 @@
+<table>
+  <% if @product.images.present? %>
+    <% @product.images.each do | image |%>
+      <tr>
+          <td><%= image_tag image.photo(:thumb) %></td>
+      </tr>
+    <%end%>
+  <%end%>
+</table>

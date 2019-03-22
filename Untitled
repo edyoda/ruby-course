@@ -1,0 +1,7 @@
+Image.all.map {|a|
+unless a.product_id.nil?
+  a.entity_id = a.product_id
+  a.entity_type = "Product"
+  a.save
+end
+}

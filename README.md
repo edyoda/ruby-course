@@ -71,3 +71,48 @@ Note:
 		irb(main):006:0> File.read("user_data.txt").split("\n").map {|a| a.split(" ")}
 		=> [["Rails", "HSR"], ["HSR", "JAVAS"]]
 		irb(main):007:0> exit
+
+
+
+Call back --
+
+ -- Creating
+
+ -- Updating
+ -- Deleting 	
+
+
+# Mailer
+
+1 ) add a mailer class using below commands
+rails g mailer send_email welcome # it will add class named as SendEmailMailer in app/mailer folder alongs with templates in the views folder whcih will noting but the body of the email
+
+
+2 ) Update you welcome method mail function.
+  mail(to: user.email, subject: "Welcome to weInvest")
+
+3)  user1 = User.find(12)
+		SendEmailMailer.welcome(user1).deliver_now!
+
+
+		Association in rails
+
+
+On boarding image to the app
+
+1) add paperclip image to the gem
+2) bundle install
+	rails g model image
+	rails g paperclip image photo #( photo will be an reference object to image)
+	# to build association
+	rails g migration add_column_to_image user:belongs_to
+3) add builder
+4) upload image and
+5) access it via user object
+@user = User.last
+@user.image
+@user.image.photo
+@user.image.photo.path
+@user.image.photo.path(:small)
+@user.image.photo.path(:thumb)
+@user.image.photo

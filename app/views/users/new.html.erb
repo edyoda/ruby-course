@@ -11,11 +11,17 @@
     </tr>
     <tr>
      <td><%= f.label :password%></td>
-     <td><%= f.text_field :password%></td>
+     <td><%= f.password_field :password%></td>
     </tr>
     <tr>
      <td><%= f.label :confirm_password%></td>
-     <td><%= f.text_field :confirm_password%></td>
+     <td><%= f.password_field :confirm_password%></td>
+    </tr>
+    <tr>
+      <%= f.fields_for :image do | image |%>
+       <td><%= image.label :photo%></td>
+       <td><%= image.file_field :photo%></td>
+     <%end%>
     </tr>
     <tr>
      <td></td>
@@ -24,4 +30,4 @@
     </table>
 <%end%>
 
-<%= link_to "Home page", users_path%>
+<%= link_to "Home page", users_path, :class=>"btn btn-info"%>
