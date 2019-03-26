@@ -19,6 +19,8 @@ class ProductsController < ApplicationController
   end
 
   def show
+    cookies[:my_name] = "test123"
+    cookies[:l_name] = {value: "lets exoire", expires: 1.minutes}
     @product = Product.find(params[:id])
   end
 

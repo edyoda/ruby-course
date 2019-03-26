@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   #before_action :verify_session, except: [:login, :authenticate, :new, :create]
   skip_before_action :verify_session, only:[:login, :authenticate, :new, :create]
+  include UsersHelper
   def index
     @users = User.all
-    @user.images.build
+    # @user.images.build
   end
 
   def new
@@ -48,6 +49,15 @@ class UsersController < ApplicationController
   def logout
     session[:user_id] = nil
     redirect_to root_path
+  end
+  def download_csv
+    filepath = create_csv # its
+    if File.exists?(filepath)
+      send_file filepath, disposition: :inline
+    else
+      flash[:notice] = "OOPS something went wrong, Try again!"
+      redirect_to users_path
+    end
   end
   private
   def user_params

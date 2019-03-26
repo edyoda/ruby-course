@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<root>
+  <products>
+    <product>
+      <id>1</id>
+      <title>Cars</title>
+    </product>
+    <product>
+      <id>2</id>
+      <title>Cars</title>
+    </product>
+    <product>
+      <id>3</id>
+      <title>Cars2</title>
+    </product>
+  </products>
+</root>

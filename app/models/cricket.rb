@@ -1,0 +1,2 @@
+class Cricket < Sport
+end

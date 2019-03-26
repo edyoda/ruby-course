@@ -4,7 +4,17 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {maximum: 10, minimum: 4}
   validates :confirm_password, presence: true, length: {maximum: 10, minimum: 4}
   has_one :image, as: :entity
+  has_one :account
+  has_many :account_history, through: :account
   accepts_nested_attributes_for :image
+  scope :find_first_record, -> (id) { where(id: id)}
+  scope :find_first_record2, lambda { |name| where(name: name) }
+  # before_save do | ob |
+  #   ob # logic
+  # end
+  def self.find_first_record3(name)
+    where(name: name)
+  end
 
   include PasswordValidator
   validate do |comment|

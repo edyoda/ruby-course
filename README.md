@@ -116,3 +116,72 @@ On boarding image to the app
 @user.image.photo.path(:small)
 @user.image.photo.path(:thumb)
 @user.image.photo
+
+
+
+ActiveRecord Query methods
+find
+find_by_column_name
+first(3)
+last(3)
+order
+order(created_at: :desc)
+order(created_at: :asc)
+find_each
+find_each(start: 2000, finish: 10000)
+find_each(start: 2000)
+find_each(batch_size: 5000)
+where
+where("orders_count = ?", params[:column_names])
+where("orders_count = ? AND locked = ?", params[:orders], false)
+where.not(locked: true)
+where(orders_count: [1,3,5])
+select
+limit(5)
+group(:column_name)
+having("count(name) > ?",  1)
+where('id > 10').limit(20).order('id asc').unscope(:order)
+where('id > 10').limit(20).order('id desc').only(:order, :where)
+where(trashed: true).rewhere(trashed: false)
+distinct
+count
+joins
+left_outer_joins
+
+
+
+Action Pack – From request to response
+  -Action Dispatch : Advanced processing related to HTTP, such as MIME-type negotiation, decoding parameters in POST, PATCH, or PUT bodies, handling HTTP caching logic, cookies and sessions.
+  -Action Controller : which provides a base controller class that can be subclassed to implement filters and actions to handle requests. The result of an action is typically content generated from views.
+
+resources :controller_name,
+  path_names: {action_name: 'uri_name'}
+  path: 'popey'
+  controller: 'controller name'
+  constraints: { id: /[A-Z][A-Z][0-9]+/ }
+  as: 'images'
+  only: [:index, :show]
+  except: :destroy
+  param: 'some_name'
+  resolve("Basket") { [:basket] }
+scope 'scope_name' do
+  resources :hello
+end
+namespace :admin do
+  resources :articles, :comments
+end
+scope module: 'admin' do
+  resources :articles, :comments
+end
+member
+collection
+get '/patients/:id', to: 'patients#show'
+get 'profile', action: :show, controller: 'users'
+
+
+Nokogiri::XML::Builder.new
+LibXML::XML::Document.file
+
+
+# add below lines to your config/application.rb file to load the lib folder at the run time
+ config.eager_load_paths << Rails.root.join("lib")

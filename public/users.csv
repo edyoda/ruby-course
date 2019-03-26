@@ -1,0 +1,9 @@
+id,name,email,password,confirm_password,created_at,updated_at
+id,name,email,password,confirm_password,created_at,updated_at
+1,Cars,2019-03-22T13:18:41.282Z,2019-03-22T13:18:41.282Z
+2,Cars,2019-03-22T13:19:06.324Z,2019-03-22T13:19:06.324Z
+3,Cars2,2019-03-22T13:20:08.734Z,2019-03-22T13:20:08.734Z
+id,name,email,password,confirm_password,created_at,updated_at
+1,Cars,2019-03-22T13:18:41.282Z,2019-03-22T13:18:41.282Z
+2,Cars,2019-03-22T13:19:06.324Z,2019-03-22T13:19:06.324Z
+3,Cars2,2019-03-22T13:20:08.734Z,2019-03-22T13:20:08.734Z
