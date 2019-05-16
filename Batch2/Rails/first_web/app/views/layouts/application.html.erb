@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <% unless session[:user_id].nil? %>
+      <%= link_to "Logout", logout_path, method: :delete%>
+    <%end%>
+    <% flash.each do | _, value | %>
+      <%= value %>
+    <%end%>
     <%= yield %>
   </body>
 </html>

@@ -1,2 +1,18 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<%= form_for @user do | f |%>
+  <table>
+    <tr>
+      <td><%= f.label :name%></td>
+      <td><%= f.text_field :name%></td>
+    </tr>
+      <tr>
+        <td><%= f.label :email%></td>
+        <td><%= f.email_field :email%></td>
+    </tr>
+        <tr>
+            <td></td>
+            <td><%= f.submit "Update"%></td>
+        </tr>
+  </table>
+<%end%>
+
+<%= link_to "Home", users_path %>

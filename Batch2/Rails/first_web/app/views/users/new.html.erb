@@ -1,3 +1,8 @@
+<% if @user.errors.any? %>
+  <% @user.errors.messages.each do | key, merror |%>
+    <%= key.to_s + ": " + merror[0] %>
+  <%end%>
+<%end%>
 <%= form_for @user do | f |%>
   <table>
     <tr>
@@ -22,3 +27,4 @@
         </tr>
   </table>
 <%end%>
+<%= link_to "Home", users_path %>
