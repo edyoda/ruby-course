@@ -1,0 +1,7 @@
+14:02:00 Safari US 192.168.1.1 access_log
+14:03:00 Chrome India 192.168.1.2 access_log
+14:04:00 Chrome US 192.168.1.3 error_log
+14:05:00 Mozila India 192.168.1.4 access_log
+14:06:00 Safari US 192.168.1.5 access_log
+14:06:00 Safari US 404 access_log
+14:07:00 Safari India 502 access_log

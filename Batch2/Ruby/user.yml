@@ -1,0 +1,12 @@
+---
+User:
+  name: hello
+  email: bye
+Article:
+  :title: news
+---
+User:
+  name: hello
+  email: bye
+Article:
+  :title: news

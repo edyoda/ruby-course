@@ -1,0 +1,61 @@
+How to define a method in ruby
+
+def (-> keyword)  method_name(args1, args2)
+  logics
+end ( -> enclosure)
+
+
+
+Rule to choose a method name in two simple steps
+
+1. camelCase
+2. use _ to combine multiple words
+
+
+args1
+args2
+
+Arguments type :
+
+  Formal
+  Command line
+  Optional
+
+
+
+
+Class
+
+class method and instance method.
+
+
+Note: Ruby is a dynamically typed language,
+co concept of primitive data types.
+
+Variables:
+  There are four types of variables available in ruby
+  1. local variable
+    * lower case
+    * no default values
+    * can be use as an arguments
+    * not available across the methods
+
+
+  2. instance variable
+    * lower case with @ prefix
+    * nil as default value
+    * can not be use as an argument
+    * available across the methods but for a particular
+    instance or object
+
+  3. class variable
+  * lower case with @@ prefix
+  * no default value
+  * can not be use as an argument
+  * available across the methods
+
+  4. global variable
+  * lower case with $ prefix
+  * nil default value
+  * can not be use as an argument
+  * available across the classes

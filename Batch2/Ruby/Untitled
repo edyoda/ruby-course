@@ -1,0 +1,44 @@
+Access specifiers
+attr_accessor
+Taking inputs
+Printing outputs
+Type casting
+Ruby operators
+
+String
+string interpolation
+Array
+Hash
+
+Conditional statement
+Case statement
+Unless statement
+Loops
+loop
+for i in collection
+  logic
+end
+
+Iterators
+Mixins
+
+Range
+Closures
+Blocks
+Proc
+Lamda
+Regular expression
+Exception handling
+Files
+YAML
+
+https://us04web.zoom.us/j/270528103
+
+
+File.oepn("user.yml", "w") {|foo| foo.write(y.to_yaml)}
+
+OR
+
+
+foo = File.oepn("user.yml", "w")
+foo.write y.to_yaml
