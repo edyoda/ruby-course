@@ -1,0 +1,36 @@
+<% if @product.errors.any? %>
+  <% @product.errors.messages.each do | key, merror |%>
+    <%= key.to_s + ": " + merror[0] %>
+  <%end%>
+<%end%>
+<%= form_for @product do | f |%>
+  <table>
+    <tr>
+      <td><%= f.label :title%></td>
+      <td><%= f.text_field :title%></td>
+    </tr>
+      <tr>
+        <td><%= f.label :brand%></td>
+        <td><%= f.text_field :brand%></td>
+    </tr>
+        <tr>
+          <td><%= f.label :size%></td>
+          <td><%= f.select :size, ['M', 'S', 'XL', 'XXL']%></td>
+      </tr>
+          <tr>
+            <td><%= f.label :price%></td>
+            <td><%= f.text_field :price%></td>
+        </tr>
+        <%= f.fields_for :image do | im | %>
+        <tr>
+          <td><%= im.label :photo%></td>
+          <td><%= im.file_field :photo, multiple: true%></td>
+        </tr>
+        <%end%>
+        <tr>
+            <td></td>
+            <td><%= f.submit "Sign Up"%></td>
+        </tr>
+  </table>
+<%end%>
+<%= link_to "Home", users_path %>

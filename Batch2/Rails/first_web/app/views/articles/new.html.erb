@@ -1,0 +1,17 @@
+<%= "create articles"%>
+<%= form_for @article do | f |%>
+  <table>
+    <tr>
+      <td><%= f.label :title%></td>
+      <td><%= f.text_field :title%></td>
+    </tr>
+      <tr>
+        <td><%= f.label :content%></td>
+        <td><%= f.text_field :content%></td>
+        <tr>
+            <td></td>
+            <td><%= f.submit "Sign Up"%></td>
+        </tr>
+  </table>
+<%end%>
+<%= link_to "Home", users_path %>

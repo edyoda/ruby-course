@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<root>
+  <articles>
+    <article>
+      <id>17</id>
+      <tile>Shopping-#{t}</tile>
+    </article>
+  </articles>
+</root>
