@@ -26,7 +26,6 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
-
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 
@@ -54,6 +53,18 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 4000 }
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "gmail.com",
+    Authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: 'testrorappmail',
+    password: 'testrorappmail!12'
+  }
+
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.

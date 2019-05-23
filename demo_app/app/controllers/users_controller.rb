@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
+ # caches_page :index
+  before_action :set_locale
   def index
+ #   byebug
+    flash[:notice] = t('controller.user.sign_in_fail')
     @users = User.all
+    flash[:notice] = t('controller.user.sign_in_fail')
     logger.debug("--------#{@users.inspect}")
     custome_logger.info("--------#{@users.inspect}")
   end
@@ -13,7 +18,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      UserMailer.welocome(@user).deliver_now!
+      #UserMailer.welocome(@user).deliver_now!
+      flash[:notice] = t('controller.user.sign_in_fail')
       redirect_to edit_user_path(@user.id)
     else
       render "new"
@@ -60,5 +66,8 @@ class UsersController < ApplicationController
   # params contains meta data along with actual data so below logic will return the actual data which will get use
   # by the create or update actions
     params.require(:user).permit!
+  end
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 end

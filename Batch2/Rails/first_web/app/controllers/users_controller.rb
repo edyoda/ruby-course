@@ -1,17 +1,25 @@
 class UsersController < ApplicationController
 
-  before_action :verify_session, except: [:new, :create, :signin, :authenticate]
+  #skip_before_action :verify_session, only: [:new, :create, :signin, :authenticate]
+
+  include Build
+  puts "filed to load DB"
+  #before_action :set_locale
 
   def index
-    @user = User.all
+    # cookies[:name] = {value: "Rails", expires: Time.now + 60 }
+    @users = User.all #preload(:images) #.paginate(page: params[:page], per_page: 4)
+
   end
   def new
     @user = User.new
+    @user.build_image
   end
   def create
 
   @user = User.new(user_params)
   if @user.save
+    SendEmailMailer.welcome(@user).deliver_now!
     redirect_to users_path
   else
     render :new
@@ -48,24 +56,18 @@ class UsersController < ApplicationController
       flash[:notice] = "Logged in"
       redirect_to users_path
     else
-      flash[:notice] = "OOPs email or password does not match"
+      flash[:notice] = t('controller.users.sing_in_fail', locale: :dutch)
       redirect_to signin_path
     end
 
 
   end
-  def verify_session
-    if session[:user_id].nil?
-      redirect_to signin_path
-    end
-  end
+
   def logout
     session[:user_id] = nil
     redirect_to signin_path
   end
-  protected
-  # user_params returns the user info from the params
-  def user_params
-    params.require(:user).permit!
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 end

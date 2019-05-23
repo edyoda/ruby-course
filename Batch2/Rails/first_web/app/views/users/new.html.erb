@@ -4,7 +4,7 @@
   <%end%>
 <%end%>
 <%= form_for @user do | f |%>
-  <table>
+  <table class="table table-striped" >
     <tr>
       <td><%= f.label :name%></td>
       <td><%= f.text_field :name%></td>
@@ -21,6 +21,12 @@
             <td><%= f.label :confirm_password%></td>
             <td><%= f.password_field :confirm_password%></td>
         </tr>
+        <%= f.fields_for :image do | im | %>
+        <tr>
+          <td><%= im.label :photo%></td>
+          <td><%= im.file_field :photo%></td>
+        </tr>
+        <%end%>
         <tr>
             <td></td>
             <td><%= f.submit "Sign Up"%></td>

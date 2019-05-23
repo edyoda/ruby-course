@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+  controller:
+    users:
+      sing_in_fail: "Sign in failed"

@@ -5,7 +5,9 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { maximum: 30, minimum: 4 }, on: :create
   validates :confirm_password, presence: true, length: { maximum: 30, minimum: 4 }, on: :create
   # custom validate methods
-
+  has_one :image
+  accepts_nested_attributes_for :image
+  has_many :articles, as: :entity
   validate :verify_password
   def verify_password
     if password != confirm_password
@@ -20,9 +22,9 @@ class User < ApplicationRecord
       foo.write(self.to_json)
     }
   end
-  before_save do
-    self.name = "fname" + name
-  end
+  # before_save do
+  #   self.name = "fname" + name
+  # end
 
   before_save :encrypt_password
   def encrypt_password

@@ -3,14 +3,11 @@
     <th>Name</th>
     <th>Email</th>
     </tr>
-    <% @users.each do | i| %>
-      <tr>
-        <td><%= i.name %></td>
-        <td><%= i.email %></td>
-        <td><%= link_to "Show", user_path(i.id) %></td>
-        <td><%= link_to "Delete", i, method: :delete, data: {confirm: "Are you sure?"} %></td>
-      </tr>
+    <% @users.each do |  user | %>
+      <% cache user do%>
+        <%= render user%>  
       <%end%>
+    <%end%>
 </table>
 
 
